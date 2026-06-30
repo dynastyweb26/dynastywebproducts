@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>After Dark — Outdoor Lighting & Home Essentials</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15140F;
+    --ink-soft:#211F18;
+    --cream:#F3EEE3;
+    --cream-dim:#D8D1C1;
+    --amber:#D9A441;
+    --amber-bright:#F2C265;
+    --ember:#B5511F;
+    --line:rgba(243,238,227,0.12);
+    --radius:2px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--ink);
+    color:var(--cream);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif; font-weight:500;}
+  a{color:inherit;}
+  img{display:block; max-width:100%;}
+
+  /* ---- Header ---- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(21,20,15,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    max-width:1180px; margin:0 auto; padding:18px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{
+    font-family:'Fraunces',serif; font-size:1.3rem; letter-spacing:0.02em;
+    display:flex; align-items:center; gap:10px;
+  }
+  .brand .dot{width:8px; height:8px; border-radius:50%; background:var(--amber-bright); box-shadow:0 0 10px 3px rgba(242,194,101,0.6);}
+  .nav-links{display:flex; gap:28px; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--cream-dim);}
+  .nav-links a{text-decoration:none; transition:color .2s;}
+  .nav-links a:hover{color:var(--amber-bright);}
+
+  /* ---- Hero ---- */
+  .hero{
+    position:relative; overflow:hidden;
+    padding:120px 28px 100px;
+    text-align:center;
+  }
+  .hero::before{
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 600px 300px at 50% 0%, rgba(217,164,65,0.16), transparent 70%);
+    pointer-events:none;
+  }
+  .eyebrow{
+    font-size:0.8rem; text-transform:uppercase; letter-spacing:0.18em;
+    color:var(--amber-bright); margin-bottom:22px; font-weight:600;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 5.5vw, 4.4rem);
+    line-height:1.05; max-width:880px; margin:0 auto 24px;
+    color:var(--cream);
+  }
+  .hero h1 em{font-style:italic; color:var(--amber-bright);}
+  .hero p{
+    max-width:560px; margin:0 auto 36px; color:var(--cream-dim);
+    font-size:1.05rem; line-height:1.6;
+  }
+  .hero-cta{
+    display:inline-flex; gap:14px; align-items:center;
+    background:var(--amber-bright); color:var(--ink);
+    padding:14px 30px; border-radius:var(--radius);
+    font-weight:600; text-decoration:none; font-size:0.95rem;
+    letter-spacing:0.02em;
+    transition:transform .2s, box-shadow .2s;
+    box-shadow:0 0 0 0 rgba(242,194,101,0);
+  }
+  .hero-cta:hover{transform:translateY(-2px); box-shadow:0 8px 24px rgba(242,194,101,0.25);}
+
+  /* ---- Trust strip ---- */
+  .trust{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:20px 28px; display:flex; justify-content:center; gap:48px;
+    flex-wrap:wrap; font-size:0.78rem; letter-spacing:0.06em;
+    text-transform:uppercase; color:var(--cream-dim);
+  }
+  .trust span{color:var(--amber-bright); margin-right:6px;}
+
+  /* ---- Catalog ---- */
+  .catalog{max-width:1180px; margin:0 auto; padding:90px 28px 60px;}
+  .catalog-head{margin-bottom:54px; max-width:600px;}
+  .catalog-head .eyebrow{margin-bottom:14px;}
+  .catalog-head h2{font-size:2rem; color:var(--cream);}
+
+  .grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(320px,1fr));
+    gap:28px;
+  }
+  .card{
+    background:var(--ink-soft);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    position:relative;
+    transition:transform .25s, border-color .25s;
+  }
+  .card:hover{transform:translateY(-4px); border-color:rgba(217,164,65,0.4);}
+  .card-imgs{
+    display:grid; grid-template-columns:1.4fr 1fr; gap:1px;
+    background:var(--ink);
+    height:220px; overflow:hidden;
+  }
+  .card-imgs img{width:100%; height:100%; object-fit:cover;}
+  .card-body{padding:22px 22px 24px;}
+  .card-tag{
+    font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em;
+    color:var(--amber-bright); margin-bottom:8px; font-weight:600;
+  }
+  .card-title{font-size:1.25rem; margin-bottom:8px; color:var(--cream);}
+  .card-desc{
+    font-size:0.88rem; color:var(--cream-dim); line-height:1.55;
+    margin-bottom:20px; min-height:42px;
+  }
+  .card-foot{
+    display:flex; align-items:center; justify-content:space-between;
+    border-top:1px solid var(--line); padding-top:16px;
+  }
+  .price{font-family:'Fraunces',serif; font-size:1.4rem; color:var(--cream);}
+  .price .unit{font-size:0.7rem; color:var(--cream-dim); font-family:'Inter',sans-serif; margin-left:4px;}
+  .price.tbd{font-size:0.95rem; color:var(--cream-dim); font-family:'Inter',sans-serif; font-style:italic;}
+  .order-btn{
+    background:transparent; border:1px solid var(--amber); color:var(--amber-bright);
+    padding:9px 18px; border-radius:var(--radius); font-size:0.8rem; font-weight:600;
+    text-decoration:none; text-transform:uppercase; letter-spacing:0.05em;
+    transition:background .2s, color .2s;
+  }
+  .order-btn:hover{background:var(--amber-bright); color:var(--ink);}
+
+  /* ---- How it works ---- */
+  .how{
+    background:var(--ink-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:90px 28px;
+  }
+  .how-inner{max-width:1000px; margin:0 auto;}
+  .how h2{font-size:1.9rem; margin-bottom:48px; text-align:center;}
+  .steps{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:36px;}
+  .step{border-left:1px solid var(--line); padding-left:20px;}
+  .step .num{font-family:'Fraunces',serif; color:var(--amber-bright); font-size:1.6rem; display:block; margin-bottom:10px;}
+  .step h3{font-size:1.05rem; margin-bottom:8px; color:var(--cream); font-family:'Inter',sans-serif; font-weight:600;}
+  .step p{font-size:0.85rem; color:var(--cream-dim); line-height:1.55;}
+
+  /* ---- Footer ---- */
+  footer{padding:50px 28px 40px; text-align:center;}
+  footer .brand{justify-content:center; margin-bottom:14px;}
+  footer p{font-size:0.8rem; color:var(--cream-dim); max-width:420px; margin:0 auto;}
+  footer .contact{margin-top:18px; font-size:0.85rem;}
+  footer .contact a{color:var(--amber-bright); text-decoration:none;}
+
+  @media (max-width:640px){
+    .nav-links{display:none;}
+    .hero{padding:90px 20px 70px;}
+    .catalog, .how{padding-left:20px; padding-right:20px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand"><span class="dot"></span>After Dark</div>
+    <nav class="nav-links">
+      <a href="#catalog">Catalog</a>
+      <a href="#how">How It Works</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">Dynasty Web Distribution</div>
+  <h1>Light up your <em>outdoors</em>.<br>Order it. We ship it.</h1>
+  <p>Solar lighting, house numbers, and home essentials — picked, priced, and shipped straight to your door. No middleman, no markup games.</p>
+  <a href="#catalog" class="hero-cta">Browse the Catalog →</a>
+</section>
+
+<div class="trust">
+  <div><span>✓</span>Pay securely online</div>
+  <div><span>✓</span>Shipped to your door</div>
+  <div><span>✓</span>Tracking sent the moment it ships</div>
+</div>
+
+<section class="catalog" id="catalog">
+  <div class="catalog-head">
+    <div class="eyebrow">The Lineup</div>
+    <h2>Six items. All tested, all in demand.</h2>
+  </div>
+
+  <div class="grid">
+
+    <!-- Solar House Numbers -->
+    <div class="card">
+      <div class="card-imgs">
+        <img src="images/numbers-hero.jpeg" alt="Illuminated solar house numbers at night">
+        <img src="images/numbers-2.jpeg" alt="Modern LED house number mounted on home exterior">
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Best Seller</div>
+        <div class="card-title">Modern LED House Numbers</div>
+        <p class="card-desc">Solar powered, no wiring needed. Floating-style illumination that's visible from the street, day or night.</p>
+        <div class="card-foot">
+          <div class="price">$35<span class="unit">/ set</span></div>
+          <a href="#contact" class="order-btn">Order</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Outdoor String Lights -->
+    <div class="card">
+      <div class="card-imgs">
+        <img src="images/lights-hero.jpeg" alt="Outdoor string lights over a backyard patio at night">
+        <img src="images/lights-2.jpeg" alt="100ft string light bulbs close up">
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Patio Favorite</div>
+        <div class="card-title">100ft Outdoor String Lights</div>
+        <p class="card-desc">Weatherproof, dimmable, and built for patios and backyards. Three brightness settings.</p>
+        <div class="card-foot">
+          <div class="price">$50<span class="unit">/ set</span></div>
+          <a href="#contact" class="order-btn">Order</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bug Zapper -->
+    <div class="card">
+      <div class="card-imgs">
+        <img src="images/zapper-hero.jpeg" alt="Solar powered outdoor bug zapper in a backyard" style="grid-column:1 / -1;">
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Summer Essential</div>
+        <div class="card-title">Solar Outdoor Bug Zapper</div>
+        <p class="card-desc">No outlet needed. Charges by day, zaps by night. Covers a full backyard's worth of bugs.</p>
+        <div class="card-foot">
+          <div class="price">$69</div>
+          <a href="#contact" class="order-btn">Order</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LED Wall Sconce -->
+    <div class="card">
+      <div class="card-imgs">
+        <img src="images/sconce-hero.jpeg" alt="Magnetic LED wall sconce lights in living room">
+        <img src="images/sconce-2.jpeg" alt="LED wall sconce with touch dimming remote">
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Interior</div>
+        <div class="card-title">Touch-Dim LED Wall Sconce</div>
+        <p class="card-desc">Magnetic mount, remote-controlled color temperature and stepless dimming. Indoor ambient lighting, made simple.</p>
+        <div class="card-foot">
+          <div class="price tbd">Price coming soon</div>
+          <a href="#contact" class="order-btn">Ask</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Solar Fence/Step Lights -->
+    <div class="card">
+      <div class="card-imgs">
+        <img src="images/fence-hero.jpeg" alt="Colorful RGB solar fence lights at night">
+        <img src="images/fence-2.jpeg" alt="Solar fence lights with 9 lighting modes">
+      </div>
+      <div class="card-body">
+        <div class="card-tag">New</div>
+        <div class="card-title">RGB Solar Fence Lights</div>
+        <p class="card-desc">9 lighting modes, warm white to full color. Clips onto fences, posts, and railings — no tools required.</p>
+        <div class="card-foot">
+          <div class="price tbd">Price coming soon</div>
+          <a href="#contact" class="order-btn">Ask</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wire Shelving -->
+    <div class="card">
+      <div class="card-imgs">
+        <img src="images/shelf-hero.jpeg" alt="Wire shelving unit styled with pantry jars">
+        <img src="images/shelf-2.jpeg" alt="72 inch heavy duty 5-tier storage shelf">
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Storage</div>
+        <div class="card-title">Heavy-Duty Wire Shelving</div>
+        <p class="card-desc">Multiple sizes available — closet, pantry, and garage configurations. Built to hold real weight.</p>
+        <div class="card-foot">
+          <div class="price tbd">Price coming soon</div>
+          <a href="#contact" class="order-btn">Ask</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="how-inner">
+    <h2>How ordering works</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="num">01</span>
+        <h3>Reserve your item</h3>
+        <p>Message us to confirm the item and your shipping address.</p>
+      </div>
+      <div class="step">
+        <span class="num">02</span>
+        <h3>Pay securely online</h3>
+        <p>You'll get a secure payment link — card, no account needed.</p>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <h3>We place the order</h3>
+        <p>Your item ships directly to the address you gave us.</p>
+      </div>
+      <div class="step">
+        <span class="num">04</span>
+        <h3>Tracking, sent fast</h3>
+        <p>The moment it ships, you'll get a tracking number by text.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="brand"><span class="dot"></span>After Dark</div>
+  <p>A Dynasty Web micro-distribution project. Items ship within 1–3 business days of order confirmation, with delivery typically taking 7–12 days.</p>
+  <div class="contact">Message us to order → <a href="#">Facebook Marketplace</a></div>
+</footer>
+
+</body>
+</html>
