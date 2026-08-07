@@ -198,6 +198,17 @@ module.exports = async function handler(req, res) {
       mode: 'payment',
       line_items: order.lineItems,
       shipping_address_collection: { allowed_countries: ['US'] },
+      // Prices already absorb shipping. A single zero-cost option makes Stripe
+      // display "Free shipping" rather than no shipping line at all.
+      shipping_options: [
+        {
+          shipping_rate_data: {
+            type: 'fixed_amount',
+            fixed_amount: { amount: 0, currency: catalog.currency },
+            display_name: 'Free shipping',
+          },
+        },
+      ],
       phone_number_collection: { enabled: true },
       custom_text: { submit: { message: catalog.shipWindow } },
       metadata: order.metadata,
