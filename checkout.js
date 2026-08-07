@@ -158,9 +158,12 @@
     overlay.appendChild(dialog);
     document.body.appendChild(overlay);
 
+    // Read state from body._state (set by both modes) rather than through
+    // `mode`, because the first update() fires while `mode` is still being
+    // assigned during construction.
     function refresh() {
-      var state = mode.getState();
-      submit.disabled = !state.valid;
+      var state = body._state;
+      submit.disabled = !(state && state.valid);
     }
     refresh();
 
