@@ -1,0 +1,84 @@
+{
+  "currency": "usd",
+  "shipWindow": "Items ship within 1–3 business days of order confirmation, with delivery typically taking 7–12 days.",
+  "products": [
+    {
+      "id": "led-house-numbers",
+      "name": "Modern LED House Numbers",
+      "tagline": "BEST SELLER",
+      "description": "Solar powered, no wiring needed. Floating-style illumination that's visible from the street, day or night.",
+      "image": "images/numbers-hero.jpeg",
+      "pricing": {
+        "model": "per-character",
+        "unitAmount": 3500,
+        "unitLabel": "per character",
+        "maxLines": 5
+      }
+    },
+    {
+      "id": "outdoor-string-lights",
+      "name": "100ft Outdoor String Lights",
+      "tagline": "PATIO FAVORITE",
+      "description": "Weatherproof, dimmable, and built for patios and backyards. Three brightness settings.",
+      "image": "images/lights-hero.jpeg",
+      "pricing": {
+        "model": "flat",
+        "unitAmount": 5000,
+        "unitLabel": "per set",
+        "maxQuantity": 10
+      }
+    },
+    {
+      "id": "solar-bug-zapper",
+      "name": "Solar Outdoor Bug Zapper",
+      "tagline": "SUMMER ESSENTIAL",
+      "description": "No outlet needed. Charges by day, zaps by night. Covers a full backyard's worth of bugs.",
+      "image": "images/zapper-hero.jpeg",
+      "pricing": {
+        "model": "flat",
+        "unitAmount": 6900,
+        "unitLabel": "each",
+        "maxQuantity": 10
+      }
+    },
+    {
+      "id": "led-wall-sconce",
+      "name": "Touch-Dim LED Wall Sconce",
+      "tagline": "INTERIOR",
+      "description": "Magnetic mount, remote-controlled color temperature and stepless dimming. Indoor ambient lighting, made simple.",
+      "image": "images/sconce-hero.jpeg",
+      "pricing": {
+        "model": "flat",
+        "unitAmount": 10000,
+        "unitLabel": "per set of 2",
+        "maxQuantity": 10
+      }
+    },
+    {
+      "id": "rgb-fence-lights",
+      "name": "RGB Solar Fence Lights",
+      "tagline": "NEW",
+      "description": "9 lighting modes, warm white to full color. Clips onto fences, posts, and railings — no tools required.",
+      "image": "images/fence-hero.jpeg",
+      "pricing": {
+        "model": "flat",
+        "unitAmount": 9000,
+        "unitLabel": "per set of 4",
+        "maxQuantity": 10
+      }
+    },
+    {
+      "id": "wire-shelving",
+      "name": "Heavy-Duty Wire Shelving",
+      "tagline": "STORAGE",
+      "description": "Multiple sizes available — closet, pantry, and garage configurations. Built to hold real weight.",
+      "image": "images/shelf-hero.jpeg",
+      "pricing": {
+        "model": "flat",
+        "unitAmount": 7000,
+        "unitLabel": "per 4-tier unit",
+        "maxQuantity": 10
+      }
+    }
+  ]
+}
