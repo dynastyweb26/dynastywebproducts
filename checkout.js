@@ -149,6 +149,13 @@
         ? perCharacterMode(product, body, refresh)
         : flatMode(product, body, refresh);
 
+    // Free shipping is a reason to buy, so state it on open in both modes,
+    // not only once a total resolves.
+    var included = document.createElement('p');
+    included.className = 'od-included';
+    included.textContent = 'Shipping included';
+
+    body.appendChild(included);
     body.appendChild(error);
     body.appendChild(ship);
     body.appendChild(submit);
