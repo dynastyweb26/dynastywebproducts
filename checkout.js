@@ -520,11 +520,26 @@
     };
   }
 
+  // ---- Ship window (single-sourced from the catalog) ---------------------
+
+  function renderShipWindow(catalog) {
+    if (!catalog.shipWindow) {
+      return;
+    }
+    var targets = document.querySelectorAll('[data-ship-window]');
+    Array.prototype.forEach.call(targets, function (el) {
+      el.textContent = catalog.shipWindow;
+    });
+  }
+
   // ---- Boot --------------------------------------------------------------
 
   function boot() {
     loadCatalog()
-      .then(renderCardPrices)
+      .then(function (catalog) {
+        renderCardPrices(catalog);
+        renderShipWindow(catalog);
+      })
       .catch(function (err) {
         // If the catalog cannot load, leave the static markup as-is rather
         // than blanking prices. Log for diagnosis.
