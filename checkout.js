@@ -260,8 +260,13 @@
 
     var intro = document.createElement('p');
     intro.className = 'od-intro';
-    intro.textContent =
-      'Enter the number for each sign you want. 1 to 6 letters or numbers per sign.';
+    intro.textContent = 'Enter your house number the way it appears on your mailbox.';
+
+    // Show the unit price up front, sourced from the catalog, so the buyer
+    // knows the cost before typing anything.
+    var priceLine = document.createElement('p');
+    priceLine.className = 'od-price';
+    priceLine.textContent = formatUSD(pricing.unitAmount) + ' ' + pricing.unitLabel;
 
     var linesWrap = document.createElement('div');
     linesWrap.className = 'od-lines';
@@ -269,12 +274,13 @@
     var addBtn = document.createElement('button');
     addBtn.type = 'button';
     addBtn.className = 'od-add';
-    addBtn.textContent = 'Add another sign';
+    addBtn.textContent = 'Add another sign for a duplex or second unit';
 
     var calc = document.createElement('div');
     calc.className = 'od-calc';
 
     body.appendChild(intro);
+    body.appendChild(priceLine);
     body.appendChild(linesWrap);
     body.appendChild(addBtn);
     body.appendChild(calc);
@@ -295,7 +301,7 @@
       var label = document.createElement('label');
       label.className = 'od-label';
       label.setAttribute('for', id);
-      label.textContent = 'Sign ' + (existing + 1);
+      label.textContent = 'House number';
 
       var field = document.createElement('div');
       field.className = 'od-field';
@@ -304,6 +310,7 @@
       input.type = 'text';
       input.id = id;
       input.className = 'od-input';
+      input.placeholder = '4524';
       input.maxLength = 6;
       input.autocomplete = 'off';
       input.setAttribute('inputmode', 'text');
@@ -349,7 +356,7 @@
       Array.prototype.forEach.call(rows, function (row, i) {
         var label = row.querySelector('.od-label');
         var remove = row.querySelector('.od-remove');
-        label.textContent = 'Sign ' + (i + 1);
+        label.textContent = rows.length > 1 ? 'House number ' + (i + 1) : 'House number';
         remove.setAttribute('aria-label', 'Remove ' + label.textContent);
         remove.style.display = rows.length > 1 ? '' : 'none';
       });
@@ -384,12 +391,17 @@
             unit +
             ' = ' +
             formatUSD(lineTotal);
+          lineCalc.classList.remove('od-hint');
           input.setAttribute('aria-invalid', 'false');
         } else {
           allValid = false;
-          lineCalc.textContent = value.length
-            ? 'Use 1 to 6 letters or numbers, no spaces.'
-            : 'Enter the number for this sign.';
+          if (value.length) {
+            lineCalc.textContent = 'Use 1 to 6 letters or numbers, no spaces.';
+            lineCalc.classList.remove('od-hint');
+          } else {
+            lineCalc.textContent = 'Up to 6 letters or numbers.';
+            lineCalc.classList.add('od-hint');
+          }
           input.setAttribute('aria-invalid', value.length ? 'true' : 'false');
         }
       });
