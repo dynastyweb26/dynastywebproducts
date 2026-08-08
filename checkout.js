@@ -70,12 +70,12 @@
         unit.textContent = product.pricing.unitLabel;
         priceEl.appendChild(unit);
       }
-      var button = card.querySelector('[data-order]');
-      if (button) {
-        button.addEventListener('click', function () {
-          openDialog(catalog, product, button);
-        });
-      }
+      // The whole card is the button now; open the dialog from the card and
+      // give it a concise accessible name instead of its full text content.
+      card.setAttribute('aria-label', 'Order ' + product.name);
+      card.addEventListener('click', function () {
+        openDialog(catalog, product, card);
+      });
     });
   }
 
@@ -88,6 +88,147 @@
     return Array.prototype.slice.call(container.querySelectorAll(FOCUSABLE)).filter(function (el) {
       return el.offsetParent !== null || el === document.activeElement;
     });
+  }
+
+  // ---- Gallery -----------------------------------------------------------
+
+  function buildGallery(product) {
+    var images = (product.images || []).filter(function (im) {
+      return im && im.src;
+    });
+    var gallery = document.createElement('div');
+    gallery.className = 'od-gallery';
+
+    var viewport = document.createElement('div');
+    viewport.className = 'od-gallery-viewport';
+    var track = document.createElement('div');
+    track.className = 'od-gallery-track';
+
+    images.forEach(function (image, i) {
+      var slide = document.createElement('div');
+      slide.className = 'od-slide';
+      var img = document.createElement('img');
+      img.src = image.src;
+      img.alt = image.alt || '';
+      // Lazy-load everything past the first so the dialog opens fast.
+      img.loading = i === 0 ? 'eager' : 'lazy';
+      img.decoding = 'async';
+      slide.appendChild(img);
+      track.appendChild(slide);
+    });
+
+    viewport.appendChild(track);
+    gallery.appendChild(viewport);
+
+    // One image (or none): no dots, no arrows, no swipe.
+    if (images.length <= 1) {
+      return gallery;
+    }
+
+    var index = 0;
+
+    var prev = document.createElement('button');
+    prev.type = 'button';
+    prev.className = 'od-gallery-arrow od-gallery-prev';
+    prev.setAttribute('aria-label', 'Previous image');
+    prev.innerHTML = '&#8249;';
+    var next = document.createElement('button');
+    next.type = 'button';
+    next.className = 'od-gallery-arrow od-gallery-next';
+    next.setAttribute('aria-label', 'Next image');
+    next.innerHTML = '&#8250;';
+
+    var dotsWrap = document.createElement('div');
+    dotsWrap.className = 'od-dots';
+    var dots = images.map(function (image, i) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'od-dot';
+      dot.setAttribute('aria-label', 'Show image ' + (i + 1) + ' of ' + images.length);
+      dot.addEventListener('click', function () {
+        goTo(i);
+      });
+      dotsWrap.appendChild(dot);
+      return dot;
+    });
+
+    function goTo(i) {
+      index = Math.max(0, Math.min(images.length - 1, i));
+      track.style.transform = 'translateX(' + -index * 100 + '%)';
+      dots.forEach(function (d, di) {
+        if (di === index) {
+          d.classList.add('is-active');
+          d.setAttribute('aria-current', 'true');
+        } else {
+          d.classList.remove('is-active');
+          d.removeAttribute('aria-current');
+        }
+      });
+      prev.disabled = index === 0;
+      next.disabled = index === images.length - 1;
+    }
+
+    prev.addEventListener('click', function () {
+      goTo(index - 1);
+    });
+    next.addEventListener('click', function () {
+      goTo(index + 1);
+    });
+
+    // Arrow keys when focus is within the gallery, so they do not hijack
+    // typing in the house-number inputs.
+    viewport.tabIndex = 0;
+    viewport.setAttribute('role', 'group');
+    viewport.setAttribute('aria-label', product.name + ' images');
+    gallery.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        goTo(index - 1);
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        goTo(index + 1);
+      }
+    });
+
+    // Touch swipe.
+    var startX = 0;
+    var dx = 0;
+    var swiping = false;
+    viewport.addEventListener(
+      'touchstart',
+      function (e) {
+        swiping = true;
+        startX = e.touches[0].clientX;
+        dx = 0;
+      },
+      { passive: true }
+    );
+    viewport.addEventListener(
+      'touchmove',
+      function (e) {
+        if (swiping) {
+          dx = e.touches[0].clientX - startX;
+        }
+      },
+      { passive: true }
+    );
+    viewport.addEventListener('touchend', function () {
+      if (!swiping) {
+        return;
+      }
+      swiping = false;
+      if (dx <= -40) {
+        goTo(index + 1);
+      } else if (dx >= 40) {
+        goTo(index - 1);
+      }
+    });
+
+    gallery.appendChild(prev);
+    gallery.appendChild(next);
+    gallery.appendChild(dotsWrap);
+    goTo(0);
+    return gallery;
   }
 
   // ---- Dialog ------------------------------------------------------------
@@ -144,6 +285,9 @@
     submit.appendChild(submitLabel);
 
     // Mode-specific controls return a getState() -> { valid, payload }
+    // Product gallery at the top of the dialog, above the inputs.
+    body.appendChild(buildGallery(product));
+
     var mode =
       product.pricing.model === 'per-character'
         ? perCharacterMode(product, body, refresh)

@@ -7,7 +7,28 @@
       "name": "Modern LED House Numbers",
       "tagline": "BEST SELLER",
       "description": "Solar powered, no wiring needed. Floating-style illumination that's visible from the street, day or night.",
-      "image": "images/numbers-hero.jpeg",
+      "images": [
+        {
+          "src": "images/numbers-mounted.jpeg",
+          "alt": "House numbers one, two, three as three separate solar units mounted in a vertical column on an exterior wall at night, each glowing warm white beside a lit garage."
+        },
+        {
+          "src": "images/numbers-unit-3.jpeg",
+          "alt": "Close-up of a single house-number digit lit warm white in the dark, its face covered in solar cells."
+        },
+        {
+          "src": "images/numbers-unit-4.jpeg",
+          "alt": "A single self-contained solar house-number digit glowing warm white."
+        },
+        {
+          "src": "images/numbers-hero.jpeg",
+          "alt": "Illuminated solar house numbers at night."
+        },
+        {
+          "src": "images/numbers-2.jpeg",
+          "alt": "A modern LED house number mounted on a home exterior."
+        }
+      ],
       "pricing": {
         "model": "per-character",
         "unitAmount": 3500,
@@ -20,7 +41,16 @@
       "name": "100ft Outdoor String Lights",
       "tagline": "PATIO FAVORITE",
       "description": "Weatherproof, dimmable, and built for patios and backyards. Three brightness settings.",
-      "image": "images/lights-hero.jpeg",
+      "images": [
+        {
+          "src": "images/lights-hero.jpeg",
+          "alt": "Outdoor string lights strung over a backyard patio at night."
+        },
+        {
+          "src": "images/lights-2.jpeg",
+          "alt": "Close-up of the weatherproof string light bulbs."
+        }
+      ],
       "pricing": {
         "model": "flat",
         "unitAmount": 5000,
@@ -33,7 +63,12 @@
       "name": "Solar Outdoor Bug Zapper",
       "tagline": "SUMMER ESSENTIAL",
       "description": "No outlet needed. Charges by day, zaps by night. Covers a full backyard's worth of bugs.",
-      "image": "images/zapper-hero.jpeg",
+      "images": [
+        {
+          "src": "images/zapper-hero.jpeg",
+          "alt": "A solar-powered outdoor bug zapper standing in a backyard."
+        }
+      ],
       "pricing": {
         "model": "flat",
         "unitAmount": 6900,
@@ -46,7 +81,16 @@
       "name": "Touch-Dim LED Wall Sconce",
       "tagline": "INTERIOR",
       "description": "Magnetic mount, remote-controlled color temperature and stepless dimming. Indoor ambient lighting, made simple.",
-      "image": "images/sconce-hero.jpeg",
+      "images": [
+        {
+          "src": "images/sconce-hero.jpeg",
+          "alt": "Magnetic LED wall sconces mounted in a living room."
+        },
+        {
+          "src": "images/sconce-2.jpeg",
+          "alt": "An LED wall sconce shown with its touch dimming remote."
+        }
+      ],
       "pricing": {
         "model": "flat",
         "unitAmount": 10000,
@@ -59,7 +103,16 @@
       "name": "RGB Solar Fence Lights",
       "tagline": "NEW",
       "description": "9 lighting modes, warm white to full color. Clips onto fences, posts, and railings — no tools required.",
-      "image": "images/fence-hero.jpeg",
+      "images": [
+        {
+          "src": "images/fence-hero.jpeg",
+          "alt": "Colorful RGB solar fence lights glowing along a fence at night."
+        },
+        {
+          "src": "images/fence-2.jpeg",
+          "alt": "Solar fence lights displaying several of their lighting modes."
+        }
+      ],
       "pricing": {
         "model": "flat",
         "unitAmount": 9000,
@@ -72,7 +125,16 @@
       "name": "Heavy-Duty Wire Shelving",
       "tagline": "STORAGE",
       "description": "Multiple sizes available — closet, pantry, and garage configurations. Built to hold real weight.",
-      "image": "images/shelf-hero.jpeg",
+      "images": [
+        {
+          "src": "images/shelf-hero.jpeg",
+          "alt": "A wire shelving unit styled with pantry jars and storage."
+        },
+        {
+          "src": "images/shelf-2.jpeg",
+          "alt": "A tall heavy-duty five-tier wire storage shelf."
+        }
+      ],
       "pricing": {
         "model": "flat",
         "unitAmount": 7000,
