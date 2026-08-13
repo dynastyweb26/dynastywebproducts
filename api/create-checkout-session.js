@@ -14,6 +14,34 @@ const config = { runtime: 'nodejs' };
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
+// Rate limiting (Upstash Redis). Constructed only when credentials are
+// present, so the function fails open where Upstash is not configured - an
+// unconfigured limiter must never block checkout.
+const { Ratelimit } = require('@upstash/ratelimit');
+const { Redis } = require('@upstash/redis');
+
+let ratelimit = null;
+if (process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN) {
+  ratelimit = new Ratelimit({
+    redis: new Redis({
+      url: process.env.UPSTASH_REDIS_REST_URL,
+      token: process.env.UPSTASH_REDIS_REST_TOKEN,
+    }),
+    // 10 checkout sessions per minute per IP is well above any real buyer.
+    limiter: Ratelimit.fixedWindow(10, '60 s'),
+    prefix: 'checkout',
+    analytics: false,
+  });
+}
+
+function getClientIp(req) {
+  const forwarded = req.headers['x-forwarded-for'];
+  if (typeof forwarded === 'string' && forwarded.length > 0) {
+    return forwarded.split(',')[0].trim();
+  }
+  return req.headers['x-real-ip'] || 'unknown';
+}
+
 // Single source of truth. Throws on unknown ids so a bad id can never fall
 // through to a zero-amount charge.
 function getProduct(id) {
@@ -148,11 +176,20 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed.' });
   }
 
-  // TODO(rate-limit): Upstash Redis is not wired in this repo yet. The brief
-  // asks to match an existing Upstash pattern; there is none here, so this is
-  // left as a marked stub rather than installing Upstash without sign-off.
-  // Add a fixed-window limiter here (keyed on the client IP) before shipping
-  // to production.
+  // Rate limit by client IP. Fails open on limiter errors so an Upstash
+  // outage cannot take checkout down; only an explicit over-limit blocks.
+  if (ratelimit) {
+    try {
+      const { success } = await ratelimit.limit(getClientIp(req));
+      if (!success) {
+        return res
+          .status(429)
+          .json({ error: 'Too many requests. Please wait a moment and try again.' });
+      }
+    } catch (err) {
+      console.error('Rate limiter error (failing open):', err);
+    }
+  }
 
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : req.body || {};
