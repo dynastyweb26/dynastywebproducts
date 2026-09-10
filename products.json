@@ -9,29 +9,33 @@
       "description": "Solar powered, no wiring needed. Floating-style illumination that's visible from the street, day or night.",
       "images": [
         {
-          "src": "images/numbers-mounted.jpeg",
-          "alt": "House numbers one, two, three as three separate solar units mounted in a vertical column on an exterior wall at night, each glowing warm white beside a lit garage."
+          "src": "images/numbers-2.webp",
+          "alt": "Solar LED house number, digit 2, warm-white LED glow."
         },
         {
-          "src": "images/numbers-unit-3.jpeg",
-          "alt": "Close-up of a single house-number digit lit warm white in the dark, its face covered in solar cells."
+          "src": "images/numbers-3.webp",
+          "alt": "Solar LED house number, digit 3, warm-white LED glow."
         },
         {
-          "src": "images/numbers-unit-4.jpeg",
-          "alt": "A single self-contained solar house-number digit glowing warm white."
+          "src": "images/numbers-4.webp",
+          "alt": "Solar LED house number, digit 4, warm-white LED glow."
         },
         {
-          "src": "images/numbers-hero.jpeg",
-          "alt": "Illuminated solar house numbers at night."
+          "src": "images/numbers-0.webp",
+          "alt": "Solar LED house number, digit 0, warm-white LED glow."
         },
         {
-          "src": "images/numbers-2.jpeg",
-          "alt": "A modern LED house number mounted on a home exterior."
+          "src": "images/numbers-1.webp",
+          "alt": "Solar LED house number, digit 1, warm-white LED glow."
+        },
+        {
+          "src": "images/numbers-hardware.webp",
+          "alt": "Solar LED house number, digit 3, shown with the two included mounting screws."
         }
       ],
       "pricing": {
         "model": "per-character",
-        "unitAmount": 3500,
+        "unitAmount": 2500,
         "unitLabel": "per character",
         "maxLines": 5
       }
@@ -53,7 +57,7 @@
       ],
       "pricing": {
         "model": "flat",
-        "unitAmount": 5000,
+        "unitAmount": 4500,
         "unitLabel": "per set",
         "maxQuantity": 10
       }
@@ -93,7 +97,7 @@
       ],
       "pricing": {
         "model": "flat",
-        "unitAmount": 10000,
+        "unitAmount": 7000,
         "unitLabel": "per set of 2",
         "maxQuantity": 10
       }
@@ -115,7 +119,7 @@
       ],
       "pricing": {
         "model": "flat",
-        "unitAmount": 9000,
+        "unitAmount": 7000,
         "unitLabel": "per set of 4",
         "maxQuantity": 10
       }

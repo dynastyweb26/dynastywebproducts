@@ -177,6 +177,14 @@
   footer p{font-size:0.8rem; color:var(--cream-dim); max-width:420px; margin:0 auto;}
   footer .contact{margin-top:18px; font-size:0.85rem;}
   footer .contact a{color:var(--amber-bright); text-decoration:none;}
+  /* This badge SVG has a viewBox but no width/height attrs, so it exposes no
+     intrinsic size and an explicit width on the <img> can collapse to 0 in
+     some engines. Size the link box at the true 150:34 ratio (26px tall) and
+     let the image fill it; the badge's own preserveAspectRatio keeps the
+     artwork proportional — no stretch or crop. */
+  footer .stripe-badge{display:inline-block; width:114.7px; height:26px; margin-top:24px; line-height:0; opacity:0.85; transition:opacity .2s;}
+  footer .stripe-badge:hover{opacity:1;}
+  footer .stripe-badge img{width:100%; height:100%; display:block;}
 
   /* ---- Order dialog ---- */
   .od-overlay{
@@ -372,15 +380,15 @@
     <!-- Solar House Numbers -->
     <button type="button" class="card" data-product-id="led-house-numbers">
       <div class="card-imgs">
-        <img src="images/numbers-hero.jpeg" alt="Illuminated solar house numbers at night">
-        <img src="images/numbers-2.jpeg" alt="Modern LED house number mounted on home exterior">
+        <img src="images/numbers-2.webp" alt="Solar LED house number, digit 2, warm-white LED glow">
+        <img src="images/numbers-3.webp" alt="Solar LED house number, digit 3, warm-white LED glow">
       </div>
       <div class="card-body">
         <div class="card-tag">Best Seller</div>
         <div class="card-title">Modern LED House Numbers</div>
         <p class="card-desc">Solar powered, no wiring needed. Floating-style illumination that's visible from the street, day or night.</p>
         <div class="card-foot">
-          <div class="price" data-price>$35<span class="unit">per character</span></div>
+          <div class="price" data-price>$25<span class="unit">per character</span></div>
           <span class="order-btn" data-order>Order</span>
         </div>
       </div>
@@ -397,7 +405,7 @@
         <div class="card-title">100ft Outdoor String Lights</div>
         <p class="card-desc">Weatherproof, dimmable, and built for patios and backyards. Three brightness settings.</p>
         <div class="card-foot">
-          <div class="price" data-price>$50<span class="unit">per set</span></div>
+          <div class="price" data-price>$45<span class="unit">per set</span></div>
           <span class="order-btn" data-order>Order</span>
         </div>
       </div>
@@ -430,7 +438,7 @@
         <div class="card-title">Touch-Dim LED Wall Sconce</div>
         <p class="card-desc">Magnetic mount, remote-controlled color temperature and stepless dimming. Indoor ambient lighting, made simple.</p>
         <div class="card-foot">
-          <div class="price" data-price>$100<span class="unit">per set of 2</span></div>
+          <div class="price" data-price>$70<span class="unit">per set of 2</span></div>
           <span class="order-btn" data-order>Order</span>
         </div>
       </div>
@@ -447,7 +455,7 @@
         <div class="card-title">RGB Solar Fence Lights</div>
         <p class="card-desc">9 lighting modes, warm white to full color. Clips onto fences, posts, and railings — no tools required.</p>
         <div class="card-foot">
-          <div class="price" data-price>$90<span class="unit">per set of 4</span></div>
+          <div class="price" data-price>$70<span class="unit">per set of 4</span></div>
           <span class="order-btn" data-order>Order</span>
         </div>
       </div>
@@ -505,6 +513,9 @@
   <div class="brand"><span class="dot"></span>Dynasty Web</div>
   <p>Outdoor lighting and home essentials, shipped direct. <span data-ship-window>Items ship within 1–3 business days of order confirmation, with delivery typically taking 7–12 days.</span></p>
   <div class="contact">Questions? Reach us on <a href="https://www.facebook.com/people/Cyril-Fotsing/61571282854119/" target="_blank" rel="noopener">Facebook Messenger</a></div>
+  <a class="stripe-badge" href="https://stripe.com" target="_blank" rel="noopener">
+    <img src="images/powered-by-stripe-white.svg" alt="Powered by Stripe" width="115" height="26">
+  </a>
 </footer>
 
 <script src="checkout.js" defer></script>
