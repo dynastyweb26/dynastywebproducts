@@ -35,7 +35,7 @@
       ],
       "pricing": {
         "model": "per-character",
-        "unitAmount": 3500,
+        "unitAmount": 2500,
         "unitLabel": "per character",
         "maxLines": 5
       }
