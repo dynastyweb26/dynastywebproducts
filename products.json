@@ -57,7 +57,7 @@
       ],
       "pricing": {
         "model": "flat",
-        "unitAmount": 5000,
+        "unitAmount": 4500,
         "unitLabel": "per set",
         "maxQuantity": 10
       }
@@ -97,7 +97,7 @@
       ],
       "pricing": {
         "model": "flat",
-        "unitAmount": 10000,
+        "unitAmount": 7000,
         "unitLabel": "per set of 2",
         "maxQuantity": 10
       }
@@ -119,7 +119,7 @@
       ],
       "pricing": {
         "model": "flat",
-        "unitAmount": 9000,
+        "unitAmount": 7000,
         "unitLabel": "per set of 4",
         "maxQuantity": 10
       }
