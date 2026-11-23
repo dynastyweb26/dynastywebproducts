@@ -145,6 +145,28 @@
         "unitLabel": "per 4-tier unit",
         "maxQuantity": 10
       }
+    },
+    {
+      "id": "permanent-outdoor-lights",
+      "name": "200ft Permanent Outdoor Lights",
+      "tagline": "PREMIUM",
+      "description": "RGBIC eave lights with millions of colors. App and remote control, schedules and timers, IP67 waterproof. Set it once, light it all year.",
+      "images": [
+        {
+          "src": "/products/images/permanent-lights-hero.jpeg",
+          "alt": "A two-story home lit with multicolor permanent outdoor lights along the roofline."
+        },
+        {
+          "src": "/products/images/permanent-lights-2.jpeg",
+          "alt": "The 200ft permanent light strand in its box with the included remote."
+        }
+      ],
+      "pricing": {
+        "model": "flat",
+        "unitAmount": 20000,
+        "unitLabel": "per 200ft set",
+        "maxQuantity": 10
+      }
     }
   ]
 }
