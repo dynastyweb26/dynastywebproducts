@@ -13,8 +13,8 @@
 (function () {
   'use strict';
 
-  var CATALOG_URL = 'products.json';
-  var CHECKOUT_ENDPOINT = '/api/create-checkout-session';
+  var CATALOG_URL = '/products/products.json';
+  var CHECKOUT_ENDPOINT = '/products/api/create-checkout-session';
 
   var catalogPromise = null;
 

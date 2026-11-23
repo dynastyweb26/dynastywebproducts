@@ -9,27 +9,27 @@
       "description": "Solar powered, no wiring needed. Floating-style illumination that's visible from the street, day or night.",
       "images": [
         {
-          "src": "images/numbers-2.webp",
+          "src": "/products/images/numbers-2.webp",
           "alt": "Solar LED house number, digit 2, warm-white LED glow."
         },
         {
-          "src": "images/numbers-3.webp",
+          "src": "/products/images/numbers-3.webp",
           "alt": "Solar LED house number, digit 3, warm-white LED glow."
         },
         {
-          "src": "images/numbers-4.webp",
+          "src": "/products/images/numbers-4.webp",
           "alt": "Solar LED house number, digit 4, warm-white LED glow."
         },
         {
-          "src": "images/numbers-0.webp",
+          "src": "/products/images/numbers-0.webp",
           "alt": "Solar LED house number, digit 0, warm-white LED glow."
         },
         {
-          "src": "images/numbers-1.webp",
+          "src": "/products/images/numbers-1.webp",
           "alt": "Solar LED house number, digit 1, warm-white LED glow."
         },
         {
-          "src": "images/numbers-hardware.webp",
+          "src": "/products/images/numbers-hardware.webp",
           "alt": "Solar LED house number, digit 3, shown with the two included mounting screws."
         }
       ],
@@ -47,11 +47,11 @@
       "description": "Weatherproof, dimmable, and built for patios and backyards. Three brightness settings.",
       "images": [
         {
-          "src": "images/lights-hero.jpeg",
+          "src": "/products/images/lights-hero.jpeg",
           "alt": "Outdoor string lights strung over a backyard patio at night."
         },
         {
-          "src": "images/lights-2.jpeg",
+          "src": "/products/images/lights-2.jpeg",
           "alt": "Close-up of the weatherproof string light bulbs."
         }
       ],
@@ -69,7 +69,7 @@
       "description": "No outlet needed. Charges by day, zaps by night. Covers a full backyard's worth of bugs.",
       "images": [
         {
-          "src": "images/zapper-hero.jpeg",
+          "src": "/products/images/zapper-hero.jpeg",
           "alt": "A solar-powered outdoor bug zapper standing in a backyard."
         }
       ],
@@ -87,11 +87,11 @@
       "description": "Magnetic mount, remote-controlled color temperature and stepless dimming. Indoor ambient lighting, made simple.",
       "images": [
         {
-          "src": "images/sconce-hero.jpeg",
+          "src": "/products/images/sconce-hero.jpeg",
           "alt": "Magnetic LED wall sconces mounted in a living room."
         },
         {
-          "src": "images/sconce-2.jpeg",
+          "src": "/products/images/sconce-2.jpeg",
           "alt": "An LED wall sconce shown with its touch dimming remote."
         }
       ],
@@ -109,11 +109,11 @@
       "description": "9 lighting modes, warm white to full color. Clips onto fences, posts, and railings — no tools required.",
       "images": [
         {
-          "src": "images/fence-hero.jpeg",
+          "src": "/products/images/fence-hero.jpeg",
           "alt": "Colorful RGB solar fence lights glowing along a fence at night."
         },
         {
-          "src": "images/fence-2.jpeg",
+          "src": "/products/images/fence-2.jpeg",
           "alt": "Solar fence lights displaying several of their lighting modes."
         }
       ],
@@ -131,11 +131,11 @@
       "description": "Multiple sizes available — closet, pantry, and garage configurations. Built to hold real weight.",
       "images": [
         {
-          "src": "images/shelf-hero.jpeg",
+          "src": "/products/images/shelf-hero.jpeg",
           "alt": "A wire shelving unit styled with pantry jars and storage."
         },
         {
-          "src": "images/shelf-2.jpeg",
+          "src": "/products/images/shelf-2.jpeg",
           "alt": "A tall heavy-duty five-tier wire storage shelf."
         }
       ],
